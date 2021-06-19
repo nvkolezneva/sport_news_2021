@@ -1,9 +1,16 @@
 <template>
   <div class="events container">
     <h2 class="subtitle is-3">Мероприятия</h2>
-     <div class="search-wrapper">
-   <input type="text" v-model="searchValue" placeholder="Search" id="search-input" />
-  </div>
+
+    <b-field>
+            <b-input placeholder="Search..."
+                type="search"
+                icon="magnify"
+                icon-clickable
+                v-model="searchValue"
+                @icon-click="searchIconClick">
+            </b-input>
+        </b-field>
     <div class="columns is-multiline">
       <div v-for="event in searchEvents" :event="event" :key="event.id" class="column is-one-quarter">
         <router-link :to="`/event/${event.id}`">

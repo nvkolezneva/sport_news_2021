@@ -1,12 +1,15 @@
 <template>
   <div class="events container">
     <h2 class="subtitle is-1">Новости</h2>
-    <div class="columns is-multiline">
-      <div class="filter">
-		<label><input type="radio" v-model="selectedCategory" value="All" /> Все</label>
-		<label><input type="radio" v-model="selectedCategory" value="Баскетбол" /> Баскетбол</label>
-		<label><input type="radio" v-model="selectedCategory" value="Футбол" /> Футбол</label>
-	</div>
+    <div class="select">
+  <select v-model="selectedCategory">
+    <option value="All">Все</option>
+    <option value="Баскетбол">Баскетбол</option>
+    <option value="Футбол">Футбол</option>
+  </select>
+</div><div class="columns is-multiline">
+  
+
       <div v-for="item_news in filteredNews" :item_news="item_news" :key="item_news.id" class="column is-one-quarter">
         <router-link :to="`/item_news/${item_news.id}`">
           <NewsCard :item_news="item_news" />
